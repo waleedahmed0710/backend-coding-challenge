@@ -1,429 +1,329 @@
-Data Structures & OOP Coding Test
-Welcome to the Data Structures and OOP coding test! This assessment is designed to evaluate your proficiency in fundamental data structures and key object-oriented programming (OOP) principles. You will be presented with four coding challenges, each focusing on a specific aspect of data structures or OOP. You may choose to complete the challenges in Node.js or Python.
-
-Table of Contents
-General Instructions
-
-Environment Setup
-
-Challenges
-
-Challenge 1: Array Rotation
-
-Challenge 2: Singly Linked List
-
-Challenge 3: Stack / Queue Operations
-
-Challenge 4: OOP – Class Inheritance & Polymorphism
-
-Submission Guidelines
-
-Evaluation Criteria
-
-General Instructions
-You have 1-2 hours to complete this test (adjust based on your requirement).
-
-You can use Node.js (>= 14) or Python (>= 3.7).
-
-You can create separate files for each challenge or group them in a single file/folder structure if you prefer.
-
-Focus on clean, readable, and efficient solutions.
-
-Include comments or docstrings to explain your logic.
-
-Use only standard libraries unless a challenge explicitly states otherwise.
-
-Environment Setup
-Node.js
-Make sure you have Node.js (version 14 or higher) installed.
-
-Create a new folder for this test and navigate to it in your terminal.
-
-(Optional) Initialize a new project:
-
-bash
-Copy
-Edit
-npm init -y
-If you want to use any testing framework (e.g., Jest), install it:
-
-bash
-Copy
-Edit
-npm install --save-dev jest
-Run your code with:
-
-bash
-Copy
-Edit
-node filename.js
-Or, if using Jest tests:
-
-bash
-Copy
-Edit
-npm run test
-Python
-Make sure you have Python (version 3.7 or higher) installed.
-
-Create a new folder for this test and navigate to it in your terminal.
-
-(Optional) Create a virtual environment and activate it:
-
-bash
-Copy
-Edit
-python -m venv venv
-source venv/bin/activate  # On macOS/Linux
-venv\Scripts\activate.bat # On Windows
-If you want to use unittest or pytest, install pytest (optional):
-
-bash
-Copy
-Edit
-pip install pytest
-Run your code with:
-
-bash
-Copy
-Edit
-python filename.py
-Or, if using pytest:
-
-bash
-Copy
-Edit
-pytest
-Challenges
-Challenge 1: Array Rotation
-Goal: Given an array (or list) of integers and a number k, rotate the array to the right by k steps.
-
-Function Signature
-
-Node.js: function rotateArray(arr, k) { ... }
-
-Python: def rotate_array(arr, k): ...
-
-Description
-
-A rotation by 1 step means that the last element of the array becomes the first, and all other elements shift right by one position.
-
-You need to handle cases where k is larger than the array length.
-
-You can modify the array in place or create a new one (your choice).
-
-Sample Input/Output
-
-Input:
-
-arr = [1, 2, 3, 4, 5], k = 2
-
-Expected Output:
-
-Rotated array: [4, 5, 1, 2, 3]
-
-Notes
-
-Consider edge cases: empty array, k = 0, k much larger than array length.
-
-Aim for time efficiency (O(n) solution suggested, but not required).
-
-Challenge 2: Singly Linked List
-Goal: Implement a Singly Linked List class with the following methods:
-
-append(value): Append a node to the end of the list.
-
-prepend(value): Insert a node at the beginning of the list.
-
-delete(value): Delete the first node that has the specified value.
-
-(Optional) find(value): Return the first node that has the specified value (or null / None if not found).
-
-Class/Function Signatures
-
-Node.js:
-
-js
-Copy
-Edit
-class LinkedList {
-  constructor() { ... }
-  append(value) { ... }
-  prepend(value) { ... }
-  delete(value) { ... }
-  find(value) { ... }
-}
-Python:
-
-python
-Copy
-Edit
-class Node:
-    def __init__(self, value):
-        ...
-
-class LinkedList:
-    def __init__(self):
-        ...
-    def append(self, value):
-        ...
-    def prepend(self, value):
-        ...
-    def delete(self, value):
-        ...
-    def find(self, value):
-        ...
-Description
-
-Each node should hold a value and a pointer/reference to the next node.
-
-Ensure you handle edge cases (e.g., deleting from an empty list, prepending to an empty list).
-
-Keep track of the head of the list (you can also track the tail if you’d like, for efficiency).
-
-Sample Usage
-
-plaintext
-Copy
-Edit
-// After these operations:
-//   linkedList.append(10)
-//   linkedList.append(20)
-//   linkedList.prepend(5)
-//   linkedList.delete(10)
-
-// The list should look like: [5 -> 20]
-// find(20) should return a node/object whose value is 20
-Sample Verification
-
-Input:
-
-append(10), append(20), prepend(5), delete(10)
-
-Expected LinkedList: 5 -> 20
-
-Challenge 3: Stack / Queue Operations
-Goal: Implement a function or class to demonstrate Stack and Queue behaviors. You only need to choose one structure to implement. (If time permits, you can do both.)
-
-Option A: Stack
-Methods: push(value), pop(), peek(), isEmpty()
-
-Behavior: LIFO (Last In, First Out)
-
-Option B: Queue
-Methods: enqueue(value), dequeue(), peek(), isEmpty()
-
-Behavior: FIFO (First In, First Out)
-
-Class/Function Signatures
-
-Node.js (Stack example):
-
-js
-Copy
-Edit
-class Stack {
-  constructor() { ... }
-  push(value) { ... }
-  pop() { ... }
-  peek() { ... }
-  isEmpty() { ... }
-}
-Python (Queue example):
-
-python
-Copy
-Edit
-class Queue:
-    def __init__(self):
-        ...
-    def enqueue(self, value):
-        ...
-    def dequeue(self):
-        ...
-    def peek(self):
-        ...
-    def is_empty(self):
-        ...
-Sample Input/Output (Stack)
-
-Input: push(1), push(2), push(3), pop() -> returns 3
-
-Final Stack State: Top is 2 -> 1
-
-Sample Input/Output (Queue)
-
-Input: enqueue(1), enqueue(2), enqueue(3), dequeue() -> returns 1
-
-Final Queue State: Front is 2 -> 3
-
-Challenge 4: OOP – Class Inheritance & Polymorphism
-Goal: Design a simple class hierarchy that demonstrates inheritance and polymorphism.
-
-Scenario
-You are building a small library to represent different types of employees in a company. Every employee has:
-
-A name (string)
-
-A method to calculate pay (returns a number)
-
-There are two types of employees:
-
-FullTimeEmployee: Calculated pay is baseSalary (e.g., $3000) plus any bonuses.
-
-ContractEmployee: Calculated pay is an hourly rate times the number of hours worked.
-
-Requirements
-
-Create a base class Employee:
-
-Attributes: name
-
-Method: calculatePay() (to be overridden in subclasses)
-
-Create two subclasses:
-
-FullTimeEmployee: Has baseSalary and bonus
-
-ContractEmployee: Has hourlyRate and hoursWorked
-
-Demonstrate polymorphism by calling calculatePay() on different employee objects.
-
-Class/Function Signatures
-
-Node.js (example):
-
-js
-Copy
-Edit
-class Employee {
-  constructor(name) {
-    this.name = name;
-  }
-
-  calculatePay() {
-    // To be overridden
-    return 0;
-  }
-}
-
-class FullTimeEmployee extends Employee {
-  constructor(name, baseSalary, bonus) {
-    super(name);
-    this.baseSalary = baseSalary;
-    this.bonus = bonus;
-  }
-
-  calculatePay() {
-    // baseSalary + bonus
-  }
-}
-
-class ContractEmployee extends Employee {
-  constructor(name, hourlyRate, hoursWorked) {
-    super(name);
-    this.hourlyRate = hourlyRate;
-    this.hoursWorked = hoursWorked;
-  }
-
-  calculatePay() {
-    // hourlyRate * hoursWorked
-  }
-}
-Python (example):
-
-python
-Copy
-Edit
-class Employee:
-    def __init__(self, name):
-        self.name = name
-
-    def calculate_pay(self):
-        # To be overridden
-        return 0
-
-class FullTimeEmployee(Employee):
-    def __init__(self, name, base_salary, bonus):
-        super().__init__(name)
-        self.base_salary = base_salary
-        self.bonus = bonus
-
-    def calculate_pay(self):
-        # base_salary + bonus
-        return ...
-
-class ContractEmployee(Employee):
-    def __init__(self, name, hourly_rate, hours_worked):
-        super().__init__(name)
-        self.hourly_rate = hourly_rate
-        self.hours_worked = hours_worked
-
-    def calculate_pay(self):
-        # hourly_rate * hours_worked
-        return ...
-Sample Usage
-
-plaintext
-Copy
-Edit
-let alice = new FullTimeEmployee("Alice", 3000, 500);
-let bob = new ContractEmployee("Bob", 40, 120); // 40$/hr, 120 hours
-
-console.log(alice.calculatePay()); // Should output 3500
-console.log(bob.calculatePay());   // Should output 4800
-Submission Guidelines
-Folder Structure:
-You can create a single folder (e.g., solutions/) containing:
-
-challenge1.js or challenge1.py
-
-challenge2.js or challenge2.py
-
-challenge3.js or challenge3.py
-
-challenge4.js or challenge4.py
-
-Or any other organization you prefer (e.g., one file per solution, or all solutions in one file).
-
-Instructions:
-
-Include a brief README in your folder with instructions on how to run your solutions and any tests.
-
-If you used tests, include instructions for running them.
-
-Delivery:
-
-Provide a GitHub repository link or a zip file of your solutions.
-
-Evaluation Criteria
-Your solutions will be evaluated based on:
-
-Correctness
-
-Does the code fulfill the requirements and produce the expected outputs?
-
-Code Organization & Readability
-
-Is the code clean, modular, and well-structured?
-
-Are there meaningful variable/method/class names?
-
-Efficiency
-
-Are you using appropriate data structures and algorithms for the task?
-
-Is your approach optimal or at least reasonable given the time constraints?
-
-Use of OOP Principles (for relevant challenges)
-
-Did you demonstrate inheritance, polymorphism, and appropriate encapsulation where required?
-
-Edge Cases & Error Handling
-
-Did you consider empty inputs, boundary cases, and invalid operations?
-
-Time Limit and Recommendations
-A typical guideline is 1-2 hours total for all challenges, but feel free to allocate the time based on your requirement.
-
-If you are pressed for time, you can simplify some implementations (e.g., only partial methods for the linked list) or complete fewer challenges. Make sure to note any incomplete portions in comments.
+# Data Structures & OOP Coding Test
+
+This coding test assesses your proficiency in fundamental data
+structures and object-oriented programming (OOP) concepts. The
+challenges are intended for developers with **4+ years of experience**
+and should be completed within **1-2 hours**. You may choose **Node.js**
+or **Python** for your solutions.
+
+------------------------------------------------------------------------
+
+## Table of Contents {#overview}
+
+1.  [Overview](#overview)
+2.  [Setup & Requirements](#setup--requirements)
+3.  [Challenges](#challenges)
+    1.  [Challenge 1: Linked List
+        Manipulation](#challenge-1-linked-list-manipulation)
+    2.  [Challenge 2: Stack/Queue
+        Operations](#challenge-2-stackqueue-operations)
+    3.  [Challenge 3: Inheritance &
+        Polymorphism](#challenge-3-inheritance--polymorphism)
+    4.  [Challenge 4: Encapsulation & Data
+        Processing](#challenge-4-encapsulation--data-processing)
+4.  [Evaluation Criteria](#evaluation-criteria)
+5.  [How to Submit](#how-to-submit)
+
+------------------------------------------------------------------------
+
+## Overview
+
+You will implement solutions to 3 or 4 distinct challenges. Each
+challenge focuses on either a key data structure (e.g., linked list,
+stack/queue) or an essential OOP principle (inheritance, polymorphism,
+encapsulation).
+
+**Estimated Time**: 1-2 hours (depending on your familiarity with the
+topics).
+
+**Note**: You are free to use any standard libraries. Keep external
+dependencies to a minimum unless otherwise specified.
+
+------------------------------------------------------------------------
+
+## Setup & Requirements {#setup--requirements}
+
+-   **Programming Languages**:
+    -   **Node.js** (version 12+)
+    -   **Python** (version 3.7+)
+
+-   **Environment Setup**:
+    -   For Node.js:
+        -   Make sure Node.js is installed (`node --version`).
+        -   Use your preferred package manager (npm/yarn) if you choose
+            to install external packages.
+    -   For Python:
+        -   Make sure Python 3.7+ is installed (`python --version`).
+        -   A virtual environment is recommended but not required.
+
+-   **Project Structure**:
+
+    Create a folder named `coding-test`. Inside it, create separate
+    files for each challenge (e.g., `challenge1.py`, `challenge2.py`,
+    etc. or `challenge1.js`, `challenge2.js`, etc.). Include a
+    `README.md` (this document) for reference.
+
+-   **Running Your Solutions**:
+    -   For Node.js:
+        -   `node challenge1.js`
+        -   `node challenge2.js`
+        -   \...etc.
+    -   For Python:
+        -   `python challenge1.py`
+        -   `python challenge2.py`
+        -   \...etc.
+
+------------------------------------------------------------------------
+
+## Challenges
+
+### Challenge 1: Linked List Manipulation
+
+**Objective**: Implement a singly linked list and perform basic
+operations.
+
+1.  **Create** a `Node` class with:
+    -   A `value` or `data` property.
+    -   A `next` pointer or reference to the next node.
+2.  **Create** a `LinkedList` class with the following methods:
+    -   `insertAtHead(value)`: Insert a new node at the head (start) of
+        the list.
+    -   `insertAtTail(value)`: Insert a new node at the tail (end) of
+        the list.
+    -   `delete(value)`: Delete the first node in the list containing
+        the given `value`.
+    -   `toArray()`: Return an array (or list) of all values in the
+        linked list from head to tail.
+3.  **Sample Input/Usage**:
+
+```{=html}
+    # Python
+    ll = LinkedList()
+    ll.insertAtHead(10)
+    ll.insertAtHead(5)
+    ll.insertAtTail(15)
+    ll.delete(10)
+    print(ll.toArray())  # Expected Output: [5, 15]
+
+    // Node.js
+    const ll = new LinkedList();
+    ll.insertAtHead(10);
+    ll.insertAtHead(5);
+    ll.insertAtTail(15);
+    ll.delete(10);
+    console.log(ll.toArray()); // Expected Output: [5, 15]
+```
+
+**Expected Output**:\
+After the series of operations above, the method `toArray()` should
+return `[5, 15]`.
+
+------------------------------------------------------------------------
+
+### Challenge 2: Stack/Queue Operations
+
+**Objective**: Demonstrate proficiency with stacks or queues (choose
+**one**). You will be required to push/enqueue and pop/dequeue items, as
+well as retrieve the current size and top/front element.
+
+1.  **Stack Implementation**:
+
+    -   **Methods**:
+        -   `push(value)`
+        -   `pop()`
+        -   `peek()`: returns the top element without removing it
+        -   `size()`
+    -   **Example**:
+
+    ```{=html}
+        # Python
+        s = Stack()
+        s.push(1)
+        s.push(2)
+        print(s.peek())  # Expected: 2
+        print(s.pop())   # Expected: 2
+        print(s.size())  # Expected: 1
+    ```
+
+2.  **Queue Implementation**:
+
+    -   **Methods**:
+        -   `enqueue(value)`
+        -   `dequeue()`
+        -   `front()`: returns the front element without removing it
+        -   `size()`
+    -   **Example**:
+
+    ```{=html}
+        // Node.js
+        const q = new Queue();
+        q.enqueue(1);
+        q.enqueue(2);
+        console.log(q.front()); // Expected: 1
+        console.log(q.dequeue()); // Expected: 1
+        console.log(q.size());    // Expected: 1
+    ```
+
+3.  **Expected Output**:\
+    Must demonstrate correct operation of the chosen data structure
+    (stack or queue) using sample operations.
+
+------------------------------------------------------------------------
+
+### Challenge 3: Inheritance & Polymorphism {#challenge-3-inheritance--polymorphism}
+
+**Objective**: Show how you design class hierarchies and leverage
+polymorphism.
+
+1.  **Design**:
+    -   Create a base class `Shape` with:
+        -   A method `area()` that returns `0` or raises a \"Not
+            Implemented\" exception.
+        -   A method `perimeter()` that returns `0` or raises a \"Not
+            Implemented\" exception.
+    -   Create two derived classes `Rectangle` and `Circle` that
+        **inherit** from `Shape`.
+        -   **Rectangle**:
+            -   `constructor` or `__init__` takes `width` and `height`.
+            -   Implements `area() = width * height`.
+            -   Implements `perimeter() = 2 * (width + height)`.
+        -   **Circle**:
+            -   `constructor` or `__init__` takes `radius`.
+            -   Implements `area() = π * radius^2`.
+            -   Implements `perimeter() = 2 * π * radius`.
+            -   Use either the built-in `Math.PI` (JavaScript) or
+                `math.pi` (Python) as needed.
+2.  **Example Usage**:
+
+```{=html}
+    # Python
+    r = Rectangle(4, 5)
+    c = Circle(3)
+    print(r.area())      # Expected: 20
+    print(r.perimeter()) # Expected: 18
+    print(c.area())      # Expected: 28.2743338823 (approx)
+    print(c.perimeter()) # Expected: 18.8495559215 (approx)
+
+    // Node.js
+    const r = new Rectangle(4, 5);
+    const c = new Circle(3);
+    console.log(r.area());      // Expected: 20
+    console.log(r.perimeter()); // Expected: 18
+    console.log(c.area());      // Expected: ~28.2743
+    console.log(c.perimeter()); // Expected: ~18.8496
+```
+
+**Expected Output**: Correct area and perimeter calculations.
+
+------------------------------------------------------------------------
+
+### Challenge 4: Encapsulation & Data Processing {#challenge-4-encapsulation--data-processing}
+
+**Objective**: Demonstrate encapsulation by hiding internal details and
+providing a clean API for data processing.
+
+1.  **Design**:
+    -   Create a class `DataProcessor` with:
+        -   A private or internally-managed collection of **records**
+            (array or list).
+        -   A method `addRecord(record)` that stores a record in its
+            internal collection. A `record` can be any object or
+            dictionary.
+        -   A method `getAllRecords()` that returns a **shallow copy**
+            of the records.
+        -   A method `filterRecordsBy(predicate)` that returns only the
+            records matching a user-defined condition.\
+            For instance, `predicate` could be a function
+            `(record) => bool` in JavaScript or a lambda in Python.
+2.  **Example Usage**:
+
+```{=html}
+    # Python
+    processor = DataProcessor()
+    processor.addRecord({"name": "Alice", "age": 30})
+    processor.addRecord({"name": "Bob", "age": 25})
+
+    all_records = processor.getAllRecords()
+    print(all_records)  
+    # Expected: [{"name": "Alice", "age": 30}, {"name": "Bob", "age": 25}]
+
+    # Filter for records with age > 26
+    filtered = processor.filterRecordsBy(lambda r: r["age"] > 26)
+    print(filtered)
+    # Expected: [{"name": "Alice", "age": 30}]
+
+    // Node.js
+    const processor = new DataProcessor();
+    processor.addRecord({ name: "Alice", age: 30 });
+    processor.addRecord({ name: "Bob", age: 25 });
+
+    const allRecords = processor.getAllRecords();
+    console.log(allRecords);
+    // Expected: [{ name: "Alice", age: 30 }, { name: "Bob", age: 25 }]
+
+    // Filter for records with age > 26
+    const filtered = processor.filterRecordsBy(record => record.age > 26);
+    console.log(filtered);
+    // Expected: [{ name: "Alice", age: 30 }]
+```
+
+**Expected Output**:\
+Must correctly store, retrieve, and filter records.
+
+------------------------------------------------------------------------
+
+## Evaluation Criteria
+
+Your submissions will be evaluated on the following:
+
+1.  **Correctness**:
+    -   Does the code compile/run without errors?
+    -   Does it produce the expected outputs?
+2.  **Code Organization & Readability**:
+    -   Proper class/method separation.
+    -   Meaningful variable and function names.
+    -   Comments where needed for clarity (but avoid over-commenting).
+3.  **Efficiency**:
+    -   Reasonable time complexity.
+    -   Appropriate use of data structures (e.g., linked list, stack,
+        queue, etc.).
+4.  **OOP Practices**:
+    -   Proper use of inheritance, polymorphism, and encapsulation in
+        the relevant challenges.
+    -   Avoid duplication of code where inheritance or composition can
+        help.
+5.  **Completeness**:
+    -   All required methods and classes are implemented.
+    -   Edge cases are handled gracefully (e.g., deleting from an empty
+        list, popping from an empty stack, etc.).
+
+------------------------------------------------------------------------
+
+## How to Submit
+
+1.  **File Structure**:
+
+    Place your solutions in separate files within the `coding-test`
+    directory. Example:
+
+        coding-test/
+          |- challenge1.py (or .js)
+          |- challenge2.py (or .js)
+          |- challenge3.py (or .js)
+          |- challenge4.py (or .js)
+          |- README.md
+
+2.  **Instructions**:
+    -   Include clear instructions on how to run your code.
+    -   Provide any assumptions or explanations in comments if you feel
+        it necessary.
+
+3.  **Delivery**:
+    -   Zip the `coding-test` folder or upload it to a shared repo
+        (GitHub, GitLab, etc.).
+    -   Send the link or file to the designated reviewer.
+
+**Note**: Please only complete **3** challenges if you're
+time-constrained (1 hour). If time permits (2 hours), complete all 4.
+
+Good luck, and happy coding!
